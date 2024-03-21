@@ -38,8 +38,12 @@ jobs:
           java-version: '8'
           cache: 'maven'    
 
-      - name: Compiling and building Mule aoo
+      - name: Compiling and building Mule APP
         run: mvn clean package -DskipTests
+
+      - name: Run Munit for unit test
+        if: ${{ false }}
+        run: mvn clean test
   
       - name: Integration Testing ( Install BAT CLI)
         if: ${{ false }}
