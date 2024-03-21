@@ -51,7 +51,11 @@ jobs:
       # Automation using Any CLI (print account info, just for test CLI can do anything)
       - name: Print Account Information
         run: anypoint-cli-v4 account:user:describe --client_id cfb8011f24c54e8a81aecb16a95b37bc --client_secret 13FAd21fC91F49C1B6a2461399C504E2 -o json
-  
+
+      # encontrar el ORG ID
+      - name: Cloudhub Apps list
+        run: anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox --organization c1ac5675-9276-48a0-a9f6-3075d2d317c8 --client_id cfb8011f24c54e8a81aecb16a95b37bc --client_secret 13FAd21fC91F49C1B6a2461399C504E2 -o json
+
       - name: Integration Testing ( Install BAT CLI)
         if: ${{ false }}
         run: curl -o- 'https://s3.amazonaws.com/bat-wrapper/install.sh' | bash && echo Integration Testing Complete
